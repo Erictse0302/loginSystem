@@ -32,6 +32,7 @@ private String username;
 private String email;
 @Column(nullable = false, unique = true)
 private String password;
+@SuppressWarnings("deprecation")
 @ManyToMany
 @LazyCollection(LazyCollectionOption.FALSE)
 
