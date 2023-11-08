@@ -1,6 +1,7 @@
 package com.loginsystembackend.loginsystem.controller;
 
 import java.util.Collections;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,8 +61,8 @@ public class LoginController {
 		user.setEmail(signUpDto.getEmail());
 		
 		user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
-		
-		Role roles = roleRepository.findByName("ROLE_ADMIN").get();	
+
+		Role roles = roleRepository.findFirstByName("ROLE_ADMIN").get();
 		
 		user.setRoles(Collections.singleton(roles));
 		
